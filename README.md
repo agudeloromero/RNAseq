@@ -1,6 +1,8 @@
 # RNAseq
 
 **FASTQC**
+
+Metrics
 ```
 /path/fastqc -t 3 myfile.fastq.gz --outdir=/path/OutputDir
 ```
@@ -16,7 +18,7 @@ Single End
 
 Single End with pseudobams
 ```
-/path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 myfile.fastq.gz | /path/samtools view -Sb - > /path/myfile_kallisto.bam
+/path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 myfile.fastq.gz | /path/samtools view -Sb - > /path/mybamfile.bam
 ```
 
 **BAMTOOLS**
@@ -44,6 +46,28 @@ Delete duplicates
 ```
 /path/samtools rmdup -S mybamfile_sorted_picard.bam /path/OutputDir/mybamfile_sorted_picard_rmdup.bam
 ```
+
+**BEDTOOLS**
+
+Convert bamtofastq
+```
+/path/bedtools bamtofastq -i mybamfile_sorted_picard_rmdup.bam -fq /path/OutputDir/mybamfile_new.fastq
+```
+
+**FASTQC**
+
+Metrics
+```
+/path/fastqc -t 3 mybamfile_new.fastq --outdir=/path/OutputDir
+```
+
+**KALLISTO**
+
+Single End with pseudobams
+```
+/path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 mybamfile_new.fastq | /path/samtools view -Sb - > /path/mybamfile2.bam
+```
+
 
 
 
