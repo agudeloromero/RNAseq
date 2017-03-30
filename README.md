@@ -17,3 +17,17 @@ Single End
 Single End with pseudobams
 ```
 /path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 myfile.fastq.gz | /path/samtools view -Sb - > /path/myfile_kallisto.bam
+```
+
+**BAMTOOLS**
+
+*Sort a bam file
+```
+/path/samtools sort mybamfile.bam /path/OuputDir/mybamfile_sorted
+```
+
+*Create the index file of the bam
+```
+/path/samtools index mybamfile_sorted.bam
+```
+
