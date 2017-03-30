@@ -31,3 +31,20 @@ Single End with pseudobams
 /path/samtools index mybamfile_sorted.bam
 ```
 
+**PICARDTOOLS**
+
+Mark duplicates
+```
+java -jar /path/MarkDuplicates.jar INPUT=mybamfile_sorted.bam OUTPUT=/path/OutputDir/mybamfile_sorted_picard.bam METRICS_FILE=/path/OutputDir/statsPicard.txt REMOVE_DUPLICATES=true TMP_DIR=/path/tmp
+```
+
+**SAMTOOLS**
+
+Delete duplicates
+```
+/path/samtools rmdup -S mybamfile_sorted_picard.bam /path/OutputDir/mybamfile_sorted_picard_rmdup.bam
+```
+
+
+
+
