@@ -16,7 +16,7 @@ Single End
 
 **KALLISTO**
 
-Single End with pseudobams
+Single End with pseudobam
 ```
 /path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 myfile.fastq.gz | /path/samtools view -Sb - > /path/mybamfile.bam
 ```
@@ -63,7 +63,7 @@ Metrics
 
 **KALLISTO**
 
-Single End with pseudobams
+Single End with pseudobam
 ```
 /path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 mybamfile_new.fastq | /path/samtools view -Sb - > /path/mybamfile2.bam
 ```
