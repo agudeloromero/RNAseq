@@ -1,11 +1,17 @@
 # RNAseq
 
-some code
-
+**FASTQC**
 ```
-djaljf
+/path/fastqc -t 3 myfile.fastq.gz --outdir=/path/OutputDir
 ```
 
->example
+**TRIMMOMATIC**
+Single End
+```
+/path/trimmomatic-0.33.jar SE -threads 4 -phred33 -trimlog /path/LOG/myfile_log myfile.fastq.gz /path/OutputDir/myfile_trim.fastq.gz ILLUMINACLIP:/path/Trimmomatic-0.33/adapters/TruSeq3-SE.fa:2:30:10 HEADCROP:13
+```
 
-jl;kjsdfasjk
+**KALLISTO**
+Single End with pseudobams
+```
+/path/kallisto quant -i /path/IndexReference.idx -o /path/OutputDir --pseudobam --single -l 200 -s 20 myfile.fastq.gz | /path/samtools view -Sb - > /path/myfile_kallisto.bam
