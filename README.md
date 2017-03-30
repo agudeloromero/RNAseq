@@ -21,12 +21,12 @@ Single End with pseudobams
 
 **BAMTOOLS**
 
-*Sort a bam file
+>Sort a bam file
 ```
 /path/samtools sort mybamfile.bam /path/OuputDir/mybamfile_sorted
 ```
 
-*Create the index file of the bam
+>Create the index file of the bam
 ```
 /path/samtools index mybamfile_sorted.bam
 ```
